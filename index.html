@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence</title>
+</head>
+<body>
+    <script>
+        let array = [0,1]
+        let storedNum = 0;
+        let num1 = 0;
+        let lastTwo = []
+
+        //Take a number and return an array containing that many numbers from the FS
+        function fibsNonRec(num) {
+            lastTwo = array.slice(Math.max(array.length - 2, 0));
+            for (let i = 0; i < num; i++) {
+                for (let i = 0; i < 1; i++) {
+                    num1 = lastTwo[i];
+                    storedNum += num1;
+                    array.push(storedNum);
+                    lastTwo = array.slice(Math.max(array.length - 2, 0));
+                }
+            }
+            array.splice(0, 2);
+            console.log(array);
+        }
+
+        fibsNonRec(23);
+
+
+
+
+
+
+
+
+
+        function fibsRec(num) {
+            if (num <= 1) {
+                return array
+            }
+        }
+    </script>
+</body>
+</html>
